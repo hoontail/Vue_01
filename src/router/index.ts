@@ -13,7 +13,11 @@ const routes: Array<RouteRecordRaw> = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    // webpackPrefetch:true = 캐시에 등록, 무게가 있는 페이지, 많이 눌리는 페이지를 등록
+    component: () =>
+      import(
+        /* webpackChunkName: "about", webpackPrefetch:true */ '../views/AboutView.vue'
+      )
   }
 ]
 
