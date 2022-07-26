@@ -12,47 +12,47 @@
       <button @click="removeTodo(todo)">x</button>
     </div>
     <button @click="completed = !completed">
-      {{ completed ? "전부확인" : "완료숨기기" }}
+      {{ completed ? '전부확인' : '완료숨기기' }}
     </button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 
-let id = 0;
+let id = 0
 export default defineComponent({
-  name: "HelloWorld",
+  name: 'HelloWorld',
   props: {
-    msg: String,
+    msg: String
   },
 
   data: function () {
     return {
       completed: false,
-      newTodo: "",
+      newTodo: '',
       todos: [
-        { id: id++, text: "JavaScript 배우기", done: false },
-        { id: id++, text: "Vue 배우기", done: false },
-        { id: id++, text: "무언가 멋진 것을 만들기", done: false },
-      ],
-    };
+        { id: id++, text: 'JavaScript 배우기', done: false },
+        { id: id++, text: 'Vue 배우기', done: false },
+        { id: id++, text: '무언가 멋진 것을 만들기', done: false }
+      ]
+    }
   },
   methods: {
     addTodo() {
-      this.todos.push({ id: id++, text: this.newTodo, done: false });
-      this.newTodo = "";
+      this.todos.push({ id: id++, text: this.newTodo, done: false })
+      this.newTodo = ''
     },
     removeTodo(todo: { id: number; text: string }) {
-      this.todos = this.todos.filter((t) => t !== todo);
-    },
+      this.todos = this.todos.filter((t) => t !== todo)
+    }
   },
   computed: {
     hideTodos() {
-      return this.completed ? this.todos.filter((t) => !t.done) : this.todos;
-    },
-  },
-});
+      return this.completed ? this.todos.filter((t) => !t.done) : this.todos
+    }
+  }
+})
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
